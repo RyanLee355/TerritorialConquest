@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://cx77o2k2byeis"]
+
+[ext_resource type="Texture2D" uid="uid://cd61gp5nfh5bf" path="res://Textures/Grass.png" id="1_byltn"]
+[ext_resource type="Script" path="res://TIleMap.gd" id="1_yv6yy"]
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="2_ty3oe"]
+[ext_resource type="Texture2D" uid="uid://n7n25fwuwads" path="res://icon.svg" id="3_dbfff"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_frl12"]
+texture = ExtResource("1_byltn")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_cmhae"]
+tile_shape = 3
+tile_size = Vector2i(85, 50)
+sources/1 = SubResource("TileSetAtlasSource_frl12")
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(722, 343)
+script = ExtResource("1_yv6yy")
+
+[node name="TileMap" type="TileMap" parent="."]
+y_sort_enabled = true
+texture_filter = 1
+tile_set = SubResource("TileSet_cmhae")
+format = 2
+layer_0/y_sort_enabled = true
+layer_0/tile_data = PackedInt32Array(0, 1, 0, 131071, 1, 0, 65536, 1, 0, -65536, 1, 0, -1, 1, 0, 65535, 1, 0, 1, 1, 0, -131072, 1, 0, -2, 1, 0, 131070, 1, 0, 131072, 1, 0, 65537, 1, 0, -65535, 1, 0)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("2_ty3oe")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_dbfff")
